@@ -14,15 +14,16 @@ const btnStart = document.getElementById("btnStart").addEventListener("click", f
   gameScreen.style.setProperty("display", "block")
   menuScreen.style.setProperty("display", "none")
 
-  const name1 = getElementById("name1")
-  const name2 = getElementById("name2")
-  const sectionPlayers = getElementById("players")
+  const section = document.getElementById("players")
+  
+  const name1 = document.getElementById("name1")
+  const name2 = document.getElementById("name2")
 
   const divname1 = document.createElement("div")
+  divname1.innerText = "Jogador 1: " + name1.value
   const divname2 = document.createElement("div")
+  divname2.innerText = "Jogador 2: " + name2.value
 
-  divname1.appendChild(name1.value)
-  divname2.appendChild(name2.value)
-
-  sectionPlayers.append(divname1, divname2)
+  section.append(divname1, divname2)
+  
 })
