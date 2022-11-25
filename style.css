@@ -1,3 +1,29 @@
-.game {
-  display: none;
+.gameScreen {
+  /* display: none; */
+  align-items: center;
+  justify-content: center;
+}
+
+.squaresContainer {
+  max-width: 330px;
+  margin-top: 100px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  justify-content: center;
+  align-items: center;
+}
+.square {
+  width: 100px;
+  height: 100px;
+  font-size: 2rem;
+  cursor: pointer;
+  background-color: white
+}
+
+.clicked-X {
+  color: darkorange;
+}
+.clicked-O {
+  color: darkblue;
 }
