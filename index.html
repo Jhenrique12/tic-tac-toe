@@ -9,34 +9,38 @@
   <title>Document</title>
 </head>
 <body>
-  <section class="menu">
-    <label for="name1">Jogador 1: </label>
-    <input type="text" name="name1" id="name1">
+  <section class="menuScreen">
+    <label for="inputName1">Jogador 1: </label>
+    <input type="text" name="inputName1" id="inputName1">
     <br><br>
 
-    <label for="name2">Jogador 2: </label>
-    <input type="text" name="name2" id="name2">
+    <label for="inputName2">Jogador 2: </label>
+    <input type="text" name="inputName2" id="inputName2">
     <br><br>  
 
       <button id="btnStart"> Começar</button>
   </section>
- <main class="game">
-  
-  <section id="players"></section>
-  <br><br>
-   <button class="btns" >BOTÃO 1</button>
-   <button class="btns">BOTÃO 2</button>
-   <button class="btns">BOTÃO 2</button>
- <br><br>
- <button class="btns" >BOTÃO 1</button>
-   <button class="btns">BOTÃO 2</button>
-   <button class="btns">BOTÃO 2</button>
- <br><br>
- <button class="btns" >BOTÃO 1</button>
-   <button class="btns">BOTÃO 2</button>
-   <button class="btns">BOTÃO 2</button>
- <br><br>
 
+  <section id="players">
+    <p></p>
+  </section>
+
+ <main class="gameScreen">
+  <br><br>
+    <div class="squaresContainer" data-value="X">
+      <button class="square" ></button>
+      <button class="square"></button>
+      <button class="square"></button>
+    <br><br>
+    <button class="square"></button>
+      <button class="square"></button>
+      <button class="square"></button>
+    <br><br>
+    <button class="square"></button>
+      <button class="square"></button>
+      <button class="square"></button>
+    <br><br>
+    </div>
  </main>
 
 </body>
