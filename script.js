@@ -2,7 +2,7 @@
 const gameScreen = document.querySelector(".gameScreen")
 const menuScreen = document.querySelector(".menuScreen")
 
-const section = document.getElementById("players")
+const playersSection = document.getElementById("players")
   
 const namePlayer1 = document.getElementById("inputName1")
 const namePlayer2 = document.getElementById("inputName2")
@@ -17,15 +17,26 @@ const btnStart = document.getElementById("btnStart").addEventListener("click", f
   
   currentPlayerParagraph.innerText = "Jogador da vez: " + namePlayer1.value
   
-  section.append(playersParagraph)
-  
+  playersSection.append(playersParagraph)
+
+})
+
+const btnReset = document.getElementById("btnReset")
+btnReset.addEventListener('click', function() {
+  squares.forEach(function (square) {
+    square.removeAttribute('disabled')
+    square.innerText = ''
+    square.classList.remove('clicked-O', 'clicked-X')
+  })
 })
 
   const currentPlayerSection = document.getElementById("currentPlayer")
 
   const currentPlayerParagraph = document.querySelector("#currentPlayer > p")
 
-  const square = document.querySelectorAll(".square").forEach(function (square) {
+  const squares = document.querySelectorAll(".square")
+
+  squares.forEach(function (square) {
     square.addEventListener("click", function () {
       square.setAttribute('disabled', square.disabled)
       const squaresContainer = document.querySelector(".squaresContainer")
