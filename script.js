@@ -1,29 +1,41 @@
 
-document.querySelectorAll(".btns").forEach(function (btn) {
-  btn.addEventListener("click", function () {
-    const XorO = "X"
-    btn.setAttribute('disabled', btn.disabled)
-    btn.innerText = "Marcado " + XorO
+document.querySelectorAll(".square").forEach(function (square) {
+  square.addEventListener("click", function () {
+    square.setAttribute('disabled', square.disabled)
+    
+    const squaresContainer = document.querySelector(".squaresContainer")
+
+    if(squaresContainer.dataset.value === "O") {
+      square.innerText = "O"
+      squaresContainer.dataset.value = "X"
+      square.classList.add("clicked-O")
+
+    }
+    else {
+      square.innerText = "X"
+      squaresContainer.dataset.value = "O"
+      square.classList.add("clicked-X")
+
+    }
   })
 })
 
-const gameScreen = document.querySelector(".game")
-const menuScreen = document.querySelector(".menu")
+const gameScreen = document.querySelector(".gameScreen")
+const menuScreen = document.querySelector(".menuScreen")
 
 const btnStart = document.getElementById("btnStart").addEventListener("click", function () {
-  gameScreen.style.setProperty("display", "block")
+  gameScreen.style.setProperty("display", "flex")
   menuScreen.style.setProperty("display", "none")
 
   const section = document.getElementById("players")
   
-  const name1 = document.getElementById("name1")
-  const name2 = document.getElementById("name2")
+  const namePlayer1 = document.getElementById("inputName1")
+  const namePlayer2 = document.getElementById("inputName2")
 
-  const divname1 = document.createElement("div")
-  divname1.innerText = "Jogador 1: " + name1.value
-  const divname2 = document.createElement("div")
-  divname2.innerText = "Jogador 2: " + name2.value
+  const playersParagraph = document.querySelector("#players > p")
+  playersParagraph.innerText = "Jogador 1: " + namePlayer1.value + "\nJogador 2: " + namePlayer2.value
+  
 
-  section.append(divname1, divname2)
+  section.append(playersParagraph)
   
 })
