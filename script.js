@@ -16,7 +16,8 @@ const btnStart = document
     playersParagraph.innerText =
       "Jogador 1: " + namePlayer1.value + "\nJogador 2: " + namePlayer2.value;
 
-    currentPlayerParagraph.innerText = "Jogador da vez: " + namePlayer1.value;
+    currentPlayerParagraph.innerText =
+      "Jogador da vez: " + namePlayer1.value + "- X";
 
     playersSection.append(playersParagraph);
   });
@@ -39,14 +40,16 @@ squares.forEach(function (square) {
       square.classList.add("clicked-O");
       // storage the IDs
 
-      currentPlayerParagraph.innerText = "Jogador da vez: " + namePlayer1.value;
+      currentPlayerParagraph.innerText =
+        "Jogador da vez: " + namePlayer1.value + "- X";
     } else {
       square.innerText = "X";
       squaresContainer.dataset.value = "O";
       square.classList.add("clicked-X");
       // storage the IDs
 
-      currentPlayerParagraph.innerText = "Jogador da vez: " + namePlayer2.value;
+      currentPlayerParagraph.innerText =
+        "Jogador da vez: " + namePlayer2.value + "- O";
     }
 
     // chek if win or lose and draw -> disabled and dataset.id or id= (possibilidades)
