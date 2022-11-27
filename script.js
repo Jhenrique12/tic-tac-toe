@@ -33,6 +33,7 @@ squares.forEach(function (square) {
     square.setAttribute("disabled", square.disabled);
 
     const squaresContainer = document.querySelector(".squaresContainer");
+    //--------------------------------------------------------------------------------
 
     if (squaresContainer.dataset.value === "O") {
       square.innerText = "O";
@@ -57,6 +58,7 @@ squares.forEach(function (square) {
     // I need to storage the ID individual in O and X
     // const winPossiblities = [123, 456, 789, 147, 258, 469, 159, 357];
     // let dataID = +square.dataset.id;
+    //Maybe use for?!
   });
 });
 
@@ -66,5 +68,8 @@ btnReset.addEventListener("click", function () {
     square.removeAttribute("disabled");
     square.innerText = "";
     square.classList.remove("clicked-O", "clicked-X");
+
+    gameScreen.style.setProperty("display", "none");
+    menuScreen.style.setProperty("display", "flex");
   });
 });
