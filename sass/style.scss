@@ -41,9 +41,9 @@
       margin-top: 50px;
       cursor: pointer;
       background-color: rgb(247, 247, 8);
-    }
-    #btnReset:hover {
-      background-color: rgb(219, 219, 9);
+      &:hover {
+        background-color: rgb(219, 219, 9);
+      }
     }
   }
 }
