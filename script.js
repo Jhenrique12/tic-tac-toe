@@ -28,42 +28,77 @@ const currentPlayerParagraph = document.querySelector("#currentPlayer > p");
 
 const squares = document.querySelectorAll(".square");
 
+// arrays to get the square ID of X and O
+let markedX = [];
+let markedO = [];
+
 squares.forEach(function (square) {
   square.addEventListener("click", function () {
     square.setAttribute("disabled", square.disabled);
 
     const squaresContainer = document.querySelector(".squaresContainer");
-    //--------------------------------------------------------------------------------
 
     if (squaresContainer.dataset.value === "O") {
       square.innerText = "O";
       squaresContainer.dataset.value = "X";
       square.classList.add("clicked-O");
-      // storage the IDs
-
       currentPlayerParagraph.innerText =
         "Jogador da vez: " + namePlayer1.value + "- X";
+
+      // storage the IDs
+      markedO.push(Number(square.dataset.id));
+      console.log("Quadrados do O - " + markedO);
     } else {
       square.innerText = "X";
       squaresContainer.dataset.value = "O";
       square.classList.add("clicked-X");
-      // storage the IDs
-
       currentPlayerParagraph.innerText =
         "Jogador da vez: " + namePlayer2.value + "- O";
+
+      // storage the IDs
+      markedX.push(Number(square.dataset.id));
+      console.log("Quadrados do X - " + markedX);
     }
 
-    // chek if win or lose and draw -> disabled and dataset.id or id= (possibilidades)
-    // possibilidades - dataset.value = 123 / 456 / 789 | 147 / 258 / 469 | 159 / 357
-    // I need to storage the ID individual in O and X
-    // const winPossiblities = [123, 456, 789, 147, 258, 469, 159, 357];
-    // let dataID = +square.dataset.id;
-    //Maybe use for?!
+    const winPossibilities = [
+      [1, 2, 3],
+      [4, 5, 6],
+      [7, 8, 9],
+      [1, 4, 7],
+      [2, 5, 8],
+      [4, 6, 9],
+      [1, 5, 9],
+      [3, 5, 7],
+    ];
+    winPossibilities.forEach(function (possibilitiesArray) {
+      let Xindex = 0;
+      let Oindex = 0;
+      possibilitiesArray.forEach(function (possibilitiesEl) {
+        if (markedX.includes(possibilitiesEl)) {
+          Xindex++;
+          if (Xindex === 3) {
+            alert(namePlayer1.value + " ganhou -X");
+            squares.forEach(function (square) {
+              square.setAttribute("disabled", squares.disabled);
+            });
+          }
+        }
+
+        if (markedO.includes(possibilitiesEl)) {
+          Oindex++;
+          if (Oindex === 3) {
+            alert(namePlayer2.value + " ganhou -O");
+            squares.forEach(function (square) {
+              square.setAttribute("disabled", squares.disabled);
+            });
+          }
+        }
+      });
+    });
   });
 });
 
-const btnReset = document.getElementById("btnReset");
-btnReset.addEventListener("click", function () {
+function gameReset() {
   squares.forEach(function (square) {
     square.removeAttribute("disabled");
     square.innerText = "";
@@ -71,5 +106,10 @@ btnReset.addEventListener("click", function () {
 
     gameScreen.style.setProperty("display", "none");
     menuScreen.style.setProperty("display", "flex");
+
+    markedX = [];
+    markedO = [];
   });
-});
+}
+const btnReset = document.getElementById("btnReset");
+btnReset.addEventListener("click", gameReset);
