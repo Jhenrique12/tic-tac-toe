@@ -66,35 +66,50 @@ squares.forEach(function (square) {
       [7, 8, 9],
       [1, 4, 7],
       [2, 5, 8],
-      [4, 6, 9],
+      [3, 6, 9],
       [1, 5, 9],
       [3, 5, 7],
     ];
     winPossibilities.forEach(function (possibilitiesArray) {
       let Xindex = 0;
       let Oindex = 0;
+      const possiElArray = [];
+
       possibilitiesArray.forEach(function (possibilitiesEl) {
         if (markedX.includes(possibilitiesEl)) {
           Xindex++;
+          possiElArray.push(possibilitiesEl);
+
           if (Xindex === 3) {
             currentPlayerParagraph.innerText = namePlayer1.value + " venceu!!";
+            squaresContainer.dataset.value = "X";
             squares.forEach(function (square) {
               square.setAttribute("disabled", squares.disabled);
+              console.log("funcionou");
+
+              if (possibilitiesArray.includes(Number(square.dataset.id))) {
+                square.classList.add("squareWinner");
+              }
             });
           }
         }
-
         if (markedO.includes(possibilitiesEl)) {
           Oindex++;
+          possiElArray.push(possibilitiesEl);
+
           if (Oindex === 3) {
             currentPlayerParagraph.innerText = namePlayer2.value + " venceu!!";
             squares.forEach(function (square) {
               square.setAttribute("disabled", squares.disabled);
+              if (possibilitiesArray.includes(Number(square.dataset.id))) {
+                square.classList.add("squareWinner");
+              }
             });
           }
         }
       });
     });
+    if()
   });
 });
 
@@ -102,14 +117,14 @@ function gameReset() {
   squares.forEach(function (square) {
     square.removeAttribute("disabled");
     square.innerText = "";
-    square.classList.remove("clicked-O", "clicked-X");
-
-    gameScreen.style.setProperty("display", "none");
-    menuScreen.style.setProperty("display", "flex");
-
-    markedX = [];
-    markedO = [];
+    square.classList.remove("clicked-O", "clicked-X", "squareWinner");
   });
+
+  gameScreen.style.setProperty("display", "none");
+  menuScreen.style.setProperty("display", "flex");
+
+  markedX = [];
+  markedO = [];
 }
 const btnReset = document.getElementById("btnReset");
 btnReset.addEventListener("click", gameReset);
