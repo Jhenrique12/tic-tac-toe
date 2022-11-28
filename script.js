@@ -77,7 +77,7 @@ squares.forEach(function (square) {
         if (markedX.includes(possibilitiesEl)) {
           Xindex++;
           if (Xindex === 3) {
-            alert(namePlayer1.value + " ganhou -X");
+            currentPlayerParagraph.innerText = namePlayer1.value + " venceu!!";
             squares.forEach(function (square) {
               square.setAttribute("disabled", squares.disabled);
             });
@@ -87,7 +87,7 @@ squares.forEach(function (square) {
         if (markedO.includes(possibilitiesEl)) {
           Oindex++;
           if (Oindex === 3) {
-            alert(namePlayer2.value + " ganhou -O");
+            currentPlayerParagraph.innerText = namePlayer2.value + " venceu!!";
             squares.forEach(function (square) {
               square.setAttribute("disabled", squares.disabled);
             });
