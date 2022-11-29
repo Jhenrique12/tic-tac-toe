@@ -1,2 +1,2 @@
 # tic-tac-toe
-Projeto Jogo da velha
+A tic-tac-toe game project build with JavaScript
