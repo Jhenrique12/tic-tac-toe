@@ -16,7 +16,14 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 2px solid gray;
+  border: 2px solid #8216b3;
+  color: #7a09ab;
+}
+.menuScreen label {
+  font-weight: 600;
+}
+.menuScreen input {
+  border-color: #8216b3;
 }
 .menuScreen #btnStart {
   width: 100px;
@@ -24,10 +31,11 @@ body {
   border-radius: 8px;
   margin-top: 10px;
   cursor: pointer;
-  background-color: #0be10b;
+  background-color: #b844ee;
+  color: #ffffff;
 }
 .menuScreen #btnStart:hover {
-  background-color: #0ac50a;
+  background-color: #8216b3;
 }
 
 .gameScreen {
