@@ -15,7 +15,7 @@ const btnStart = document.getElementById("btnStart").addEventListener("click", f
   const playersParagraph = document.querySelector("#players > p")
   playersParagraph.innerText = "Jogador 1: " + namePlayer1.value + "\nJogador 2: " + namePlayer2.value
   
-  currentPlayerParagraph.innerText = "Jogador da vez: " + namePlayer1.value
+  currentPlayerParagraph.innerText = "Jogador da vez: " + namePlayer1.value + " - X"
   
   playersSection.append(playersParagraph)
 
@@ -46,14 +46,14 @@ btnReset.addEventListener('click', function() {
         squaresContainer.dataset.value = "X"
         square.classList.add("clicked-O")
 
-        currentPlayerParagraph.innerText = "Jogador da vez: " + namePlayer1.value
+        currentPlayerParagraph.innerText = "Jogador da vez: " + namePlayer1.value + " - X"
       }
       else {
         square.innerText = "X"
         squaresContainer.dataset.value = "O"
         square.classList.add("clicked-X")
         
-        currentPlayerParagraph.innerText = "Jogador da vez: " + namePlayer2.value
+        currentPlayerParagraph.innerText = "Jogador da vez: " + namePlayer2.value + " - O"
       }
     })
   })
