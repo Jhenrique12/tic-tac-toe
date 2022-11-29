@@ -32,12 +32,15 @@ const squares = document.querySelectorAll(".square");
 let markedX = [];
 let markedO = [];
 
+let draw = 0
+
 squares.forEach(function (square) {
   square.addEventListener("click", function () {
     square.setAttribute("disabled", square.disabled);
 
-    const squaresContainer = document.querySelector(".squaresContainer");
+    draw++
 
+    const squaresContainer = document.querySelector(".squaresContainer");
     if (squaresContainer.dataset.value === "O") {
       square.innerText = "O";
       squaresContainer.dataset.value = "X";
@@ -70,10 +73,10 @@ squares.forEach(function (square) {
       [1, 5, 9],
       [3, 5, 7],
     ];
+
     winPossibilities.forEach(function (possibilitiesArray) {
       let Xindex = 0;
       let Oindex = 0;
-      const possiElArray = [];
 
       possibilitiesArray.forEach(function (possibilitiesEl) {
         if (markedX.includes(possibilitiesEl)) {
@@ -85,6 +88,7 @@ squares.forEach(function (square) {
               square.setAttribute("disabled", squares.disabled);
               if (possibilitiesArray.includes(Number(square.dataset.id))) {
                 square.classList.add("squareWinner");
+                draw = 0
               }
             });
           }
@@ -97,11 +101,21 @@ squares.forEach(function (square) {
               square.setAttribute("disabled", squares.disabled);
               if (possibilitiesArray.includes(Number(square.dataset.id))) {
                 square.classList.add("squareWinner");
+                draw = 0
               }
             });
           }
         }
       });
+      if(draw > 8 && !square.classList.contains("squareWinner")){
+        currentPlayerParagraph.innerText = "EMPATE! Por favor clique no botão reiniciar para jogar novamente."
+        squares.forEach(function (square) {
+        square.classList.add("drawGame")
+        })
+        squaresContainer.dataset.value = "X"; 
+        draw = 0
+      }
+
     });
   });
 });
@@ -110,7 +124,7 @@ function gameReset() {
   squares.forEach(function (square) {
     square.removeAttribute("disabled");
     square.innerText = "";
-    square.classList.remove("clicked-O", "clicked-X", "squareWinner");
+    square.classList.remove("clicked-O", "clicked-X", "squareWinner", "drawGame");
   });
 
   gameScreen.style.setProperty("display", "none");
