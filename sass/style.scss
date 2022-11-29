@@ -5,6 +5,18 @@
   align-items: center;
   margin-top: 100px;
   gap: 10px;
+
+  #btnStart {
+    width: 100px;
+    height: 40px;
+    border-radius: 8px;
+    margin-top: 50px;
+    cursor: pointer;
+    background-color: #0be10b;
+    &:hover {
+      background-color: #0ac50a
+    }
+  }
 }
 
 .gameScreen {
@@ -38,12 +50,12 @@
   #btnReset {
     width: 100px;
     height: 50px;
-    border-radius: 10%;
+    border-radius: 8px;
     margin-top: 50px;
     cursor: pointer;
-    background-color: rgb(247, 247, 8);
+    background-color: #f7f708;
     &:hover {
-      background-color: rgb(219, 219, 9);
+      background-color: #dbdb09;
     }
   }
 }
