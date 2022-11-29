@@ -78,15 +78,11 @@ squares.forEach(function (square) {
       possibilitiesArray.forEach(function (possibilitiesEl) {
         if (markedX.includes(possibilitiesEl)) {
           Xindex++;
-          possiElArray.push(possibilitiesEl);
-
           if (Xindex === 3) {
             currentPlayerParagraph.innerText = namePlayer1.value + " venceu!!";
-            squaresContainer.dataset.value = "X";
+            squaresContainer.dataset.value = "X"; 
             squares.forEach(function (square) {
               square.setAttribute("disabled", squares.disabled);
-              console.log("funcionou");
-
               if (possibilitiesArray.includes(Number(square.dataset.id))) {
                 square.classList.add("squareWinner");
               }
@@ -95,8 +91,6 @@ squares.forEach(function (square) {
         }
         if (markedO.includes(possibilitiesEl)) {
           Oindex++;
-          possiElArray.push(possibilitiesEl);
-
           if (Oindex === 3) {
             currentPlayerParagraph.innerText = namePlayer2.value + " venceu!!";
             squares.forEach(function (square) {
