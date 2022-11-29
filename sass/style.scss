@@ -1,16 +1,25 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .menuScreen {
+  width: 300px;
+  height: 400px;
+  margin-top: 100px;
+  padding: 10px;
+  gap: 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 100px;
-  gap: 10px;
+  border: 2px solid gray;
 
   #btnStart {
     width: 100px;
     height: 40px;
     border-radius: 8px;
-    margin-top: 50px;
+    margin-top: 10px;
     cursor: pointer;
     background-color: #0be10b;
     &:hover {
