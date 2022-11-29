@@ -33,7 +33,7 @@
   cursor: pointer;
   background-color: white;
 }
-.gameScreen .squaresContainer #btnReset {
+.gameScreen #btnReset {
   width: 100px;
   height: 50px;
   border-radius: 10%;
@@ -41,7 +41,7 @@
   cursor: pointer;
   background-color: rgb(247, 247, 8);
 }
-.gameScreen .squaresContainer #btnReset:hover {
+.gameScreen #btnReset:hover {
   background-color: rgb(219, 219, 9);
 }
 
@@ -51,6 +51,14 @@
 
 .clicked-O {
   color: darkblue;
+}
+
+.squareWinner {
+  border: 3px solid green;
+}
+
+.drawGame {
+  border: 3px solid red;
 }
 
 /*# sourceMappingURL=style.css.map */
