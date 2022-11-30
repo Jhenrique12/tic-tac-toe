@@ -37,7 +37,6 @@ let draw = 0
 squares.forEach(function (square) {
   square.addEventListener("click", function () {
     square.setAttribute("disabled", square.disabled);
-
     draw++
 
     const squaresContainer = document.querySelector(".squaresContainer");
@@ -46,7 +45,7 @@ squares.forEach(function (square) {
       squaresContainer.dataset.value = "X";
       square.classList.add("clicked-O");
       currentPlayerParagraph.innerText =
-        "Jogador da vez: " + namePlayer1.value + "- X";
+        "Jogador da vez: " + namePlayer1.value + " - X";
 
       // storage the IDs
       markedO.push(Number(square.dataset.id));
@@ -56,7 +55,7 @@ squares.forEach(function (square) {
       squaresContainer.dataset.value = "O";
       square.classList.add("clicked-X");
       currentPlayerParagraph.innerText =
-        "Jogador da vez: " + namePlayer2.value + "- O";
+        "Jogador da vez: " + namePlayer2.value + " - O";
 
       // storage the IDs
       markedX.push(Number(square.dataset.id));
@@ -82,13 +81,13 @@ squares.forEach(function (square) {
         if (markedX.includes(possibilitiesEl)) {
           Xindex++;
           if (Xindex === 3) {
+            draw = 0
             currentPlayerParagraph.innerText = namePlayer1.value + " venceu!!";
             squaresContainer.dataset.value = "X"; 
             squares.forEach(function (square) {
               square.setAttribute("disabled", squares.disabled);
               if (possibilitiesArray.includes(Number(square.dataset.id))) {
                 square.classList.add("squareWinner");
-                draw = 0
               }
             });
           }
@@ -96,27 +95,28 @@ squares.forEach(function (square) {
         if (markedO.includes(possibilitiesEl)) {
           Oindex++;
           if (Oindex === 3) {
+            draw = 0
             currentPlayerParagraph.innerText = namePlayer2.value + " venceu!!";
             squares.forEach(function (square) {
               square.setAttribute("disabled", squares.disabled);
               if (possibilitiesArray.includes(Number(square.dataset.id))) {
                 square.classList.add("squareWinner");
-                draw = 0
               }
             });
           }
         }
       });
-      if(draw > 8 && !square.classList.contains("squareWinner")){
-        currentPlayerParagraph.innerText = "EMPATE! Por favor clique no botão reiniciar para jogar novamente."
-        squares.forEach(function (square) {
-        square.classList.add("drawGame")
-        })
-        squaresContainer.dataset.value = "X"; 
-        draw = 0
-      }
-
     });
+    if(draw > 8 && !square.classList.contains("squareWinner")){
+      currentPlayerParagraph.innerText = "EMPATE! Por favor clique no botão reiniciar para jogar novamente."
+      squares.forEach(function (square) {
+        console.log("draw " + draw)
+      square.classList.add("drawGame")
+      })
+      squaresContainer.dataset.value = "X"; 
+      draw = 0
+    }
+    
   });
 });
 
@@ -125,6 +125,7 @@ function gameReset() {
     square.removeAttribute("disabled");
     square.innerText = "";
     square.classList.remove("clicked-O", "clicked-X", "squareWinner", "drawGame");
+    draw = 0
   });
 
   gameScreen.style.setProperty("display", "none");
