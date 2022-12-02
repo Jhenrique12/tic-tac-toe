@@ -5,8 +5,11 @@ body {
   justify-content: center;
   align-items: center;
   font-family: 'Roboto', sans-serif;
+  background: rgb(2,0,36);
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(116,9,121,1) 41%, rgba(252,0,255,1) 100%);
 }
 .menuScreen {
+  background-color: white;
   width: 300px;
   height: 400px;
   margin-top: 100px;
@@ -16,7 +19,8 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 2px solid #8216b3;
+  // border: 2px solid #c481e2;
+  box-shadow: #000000aa 2px 2px;
   color:#7a09ab;
 
   label {
@@ -45,10 +49,23 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  color: #ffffff;
+
+  .playerParagraph {
+    width: 400px;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid black;
+    display: flex; 
+    color: black;
+    background-color: white;
+      
+}
 
   #currentPlayer {
-    margin-top: 80px;
+    margin-top: 20px;
     margin-bottom: -100px;
+    
   }
   .squaresContainer {
     max-width: 330px;
@@ -69,17 +86,26 @@ body {
 
   }
   #btnReset {
-    width: 100px;
-    height: 50px;
-    border-radius: 8px;
     margin-top: 50px;
-    cursor: pointer;
-    background-color: #f7f708;
-    &:hover {
-      background-color: #dbdb09;
-    }
+    background:linear-gradient(to bottom, #a245c7 5%, #2e112e 100%);
+    background-color:#a245c7;
+    border-radius: 8px;
+    border:1px solid #ffff;
+    cursor:pointer;
+    color:#ffffff;
+    padding:18px 31px;
   }
+  #btnReset:hover {
+    background:linear-gradient(to bottom, #170117 5%, #a229d2 100%);
+    background-color:#2e112e;
+  }
+  
+  
+  
+  
+  
 }
+
 
 .clicked-X {
   color: #ffa500;
@@ -88,7 +114,7 @@ body {
   color: #00008b;
 }
 .squareWinner {
-  border: 3px solid #008000;
+  border: 4px solid #02dc02;
 }
 .drawGame {
   border: 3px solid #ff0000;
