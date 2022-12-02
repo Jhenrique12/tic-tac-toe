@@ -13,11 +13,14 @@ const btnStart = document
     menuScreen.style.setProperty("display", "none");
 
     const playersParagraph = document.querySelector("#players > p");
+    
+
     playersParagraph.innerText =
-      "Jogador 1: " + namePlayer1.value + "\nJogador 2: " + namePlayer2.value;
+      "Jogador 1: " + namePlayer1.value + "\n\nJogador 2: " + namePlayer2.value;
+
 
     currentPlayerParagraph.innerText =
-      "Jogador da vez: " + namePlayer1.value + "- X";
+      "Jogador da vez: " + namePlayer1.value + "- X" ;
 
     playersSection.append(playersParagraph);
   });
@@ -45,7 +48,7 @@ squares.forEach(function (square) {
       squaresContainer.dataset.value = "X";
       square.classList.add("clicked-O");
       currentPlayerParagraph.innerText =
-        "Jogador da vez: " + namePlayer1.value + " - X";
+        "Jogador da vez: " + namePlayer1.value + "- X" ;
 
       // storage the IDs
       markedO.push(Number(square.dataset.id));
@@ -55,7 +58,7 @@ squares.forEach(function (square) {
       squaresContainer.dataset.value = "O";
       square.classList.add("clicked-X");
       currentPlayerParagraph.innerText =
-        "Jogador da vez: " + namePlayer2.value + " - O";
+        "Jogador da vez: " + namePlayer2.value + "- O" ;
 
       // storage the IDs
       markedX.push(Number(square.dataset.id));
@@ -136,3 +139,4 @@ function gameReset() {
 }
 const btnReset = document.getElementById("btnReset");
 btnReset.addEventListener("click", gameReset);
+
