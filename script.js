@@ -70,15 +70,13 @@ squares.forEach(function (square) {
       [1, 5, 9],
       [3, 5, 7],
     ];
+
     winPossibilities.forEach(function (possibilitiesArray) {
       let Xindex = 0;
       let Oindex = 0;
-      const possiElArray = [];
-
       possibilitiesArray.forEach(function (possibilitiesEl) {
         if (markedX.includes(possibilitiesEl)) {
           Xindex++;
-          possiElArray.push(possibilitiesEl);
 
           if (Xindex === 3) {
             currentPlayerParagraph.innerText = namePlayer1.value + " venceu!!";
@@ -95,7 +93,6 @@ squares.forEach(function (square) {
         }
         if (markedO.includes(possibilitiesEl)) {
           Oindex++;
-          possiElArray.push(possibilitiesEl);
 
           if (Oindex === 3) {
             currentPlayerParagraph.innerText = namePlayer2.value + " venceu!!";
@@ -109,7 +106,6 @@ squares.forEach(function (square) {
         }
       });
     });
-    if()
   });
 });
 
