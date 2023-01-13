@@ -1,4 +1,5 @@
 const gameScreen = document.querySelector(".gameScreen");
+const footer = document.querySelector(".footer")
 const menuScreen = document.querySelector(".menuScreen");
 
 const playersSection = document.getElementById("players");
@@ -11,6 +12,7 @@ const btnStart = document
   .getElementById("btnStart")
   .addEventListener("click", function () {
     gameScreen.style.setProperty("display", "flex");
+    footer.style.setProperty("display", "none");
     menuScreen.style.setProperty("display", "none");
 
     const playersParagraph = document.querySelector("#players > p");
@@ -133,6 +135,7 @@ function gameReset() {
   });
 
   gameScreen.style.setProperty("display", "none");
+  footer.style.setProperty("display", "block");
   menuScreen.style.setProperty("display", "flex");
 
   markedX = [];
