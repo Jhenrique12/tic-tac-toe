@@ -7,6 +7,7 @@ body {
   font-family: 'Roboto', sans-serif;
   background: rgb(2,0,36);
   background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(116,9,121,1) 41%, rgba(252,0,255,1) 100%);
+  flex-wrap: wrap;
 }
 .menuScreen {
   background-color: white;
@@ -64,8 +65,7 @@ body {
 
   #currentPlayer {
     margin-top: 20px;
-    margin-bottom: -100px;
-    
+    margin-bottom: -100px; 
   }
   .squaresContainer {
     max-width: 330px;
@@ -101,11 +101,23 @@ body {
   }
   
   
-  
-  
-  
 }
 
+.footer {
+  color: #ffff;
+  width: 100%;
+  height: 30px;
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  a {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.874);
+    &:hover {
+      color: #ffffff;
+    }
+  }
+}
 
 .clicked-X {
   color: #ffa500;
