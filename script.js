@@ -6,6 +6,7 @@ const playersSection = document.getElementById("players");
 const namePlayer1 = document.getElementById("inputName1");
 const namePlayer2 = document.getElementById("inputName2");
 
+
 const btnStart = document
   .getElementById("btnStart")
   .addEventListener("click", function () {
@@ -76,14 +77,13 @@ squares.forEach(function (square) {
       [3, 5, 7],
     ];
 
-
     winPossibilities.forEach(function (possibilitiesArray) {
       let Xindex = 0;
       let Oindex = 0;
+
       possibilitiesArray.forEach(function (possibilitiesEl) {
         if (markedX.includes(possibilitiesEl)) {
           Xindex++;
-
           if (Xindex === 3) {
             draw = 0
             currentPlayerParagraph.innerText = namePlayer1.value + " venceu!!";
@@ -111,6 +111,16 @@ squares.forEach(function (square) {
         }
       });
     });
+    if(draw > 8 && !square.classList.contains("squareWinner")){
+      currentPlayerParagraph.innerText = "EMPATE! Por favor clique no botão reiniciar para jogar novamente."
+      squares.forEach(function (square) {
+        console.log("draw " + draw)
+      square.classList.add("drawGame")
+      })
+      squaresContainer.dataset.value = "X"; 
+      draw = 0
+    }
+    
   });
 });
 
